@@ -42,6 +42,10 @@ public class ChatUtil {
 		}
 	}
 	
+	protected static void log(Level level, String log) {
+		Bukkit.getLogger().log(level, log);
+	}
+	
 	protected static void addLineToMissedChat(Player p, String line) {
 		getMissedChat(p).add(line);
 	}
@@ -83,7 +87,7 @@ public class ChatUtil {
 			return defaul;
 		}
 		if(values.size() > 1) {
-			Bukkit.getLogger().log(Level.WARNING, "[ChatMenuAPI] Metadata ' " + path + " returned more than 1 value.");
+			ChatUtil.log(Level.WARNING, "[ChatMenuAPI] Metadata ' " + path + " returned more than 1 value.");
 		}
 		return values.get(0).value();
 	}

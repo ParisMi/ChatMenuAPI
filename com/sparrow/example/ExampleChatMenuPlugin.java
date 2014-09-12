@@ -3,6 +3,7 @@ package com.sparrow.example;
 import java.util.HashMap;
 import java.util.List;
 
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -89,6 +90,16 @@ public class ExampleChatMenuPlugin extends JavaPlugin {
 				@Override
 				public void execute(List<String> words) {
 					getOwner().damage(999);
+				}
+				
+			});
+			
+			commands.put("kill_person", new ChatMenuCommand() {
+
+				@SuppressWarnings("deprecation")
+				@Override
+				public void execute(List<String> words) {
+					Bukkit.getPlayer(words.get(0)).damage(999);
 				}
 				
 			});

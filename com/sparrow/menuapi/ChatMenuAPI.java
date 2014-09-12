@@ -29,8 +29,9 @@ public class ChatMenuAPI {
 	 */
 	public void displayMenu(ChatMenu menu) {
 		if(!initialized) {
-			Bukkit.getLogger().log(Level.SEVERE, "ChatMenuAPI needs to be initialized in your onEnable() method before"
-					+ " it can be used! Your menu has not been displayed.");
+			ChatUtil.log(Level.SEVERE, "ChatMenuAPI needs to be initialized "
+					+ "in your onEnable() method before it can be used! "
+					+ "Your menu has not been displayed.");
 			return;
 		}
 		ChatUtil.setMenu(menu);
@@ -70,9 +71,10 @@ public class ChatMenuAPI {
 	public void initalize(JavaPlugin hostPlugin) {
 		if(chatAdapter == null) {
 			if(Bukkit.getPluginManager().getPlugin("ProtocolLib") == null) {
-				Bukkit.getLogger().log(Level.SEVERE, "ChatMenuAPI is being used, but ProtocolLib hasn't been installed!"
-						+ " Make sure your plugin.yml has 'depend: [ProtocolLib]' and that ProtocolLib is in this server's"
-						+ " plugin folder and restart your server.");
+				ChatUtil.log(Level.SEVERE, "ChatMenuAPI is being used, but ProtocolLib hasn't "
+						+ "been installed! Make sure your plugin.yml has 'depend: "
+						+ "[ProtocolLib]' and that ProtocolLib is in this server's "
+						+ "plugin folder and restart your server.");
 				return;
 			}
 			this.hostPlugin = hostPlugin;
